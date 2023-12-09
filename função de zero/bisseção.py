@@ -1,6 +1,5 @@
 import math
-def bisseção(f,p,a,b):
-    epsilon = 10**(-p)
+def bisseção(f,epsilon,a,b):
     fa = f(a)
     fb = f(b)
     
@@ -28,10 +27,10 @@ def bisseção(f,p,a,b):
 
 if __name__ == '__main__':
     f = lambda x: math.sin(x)*x**x
-    p = 15
+    epsilon = 10**-15
     a = 6
     b = 7
-    resultado = bisseção(f,p,a,b)
+    resultado = bisseção(f,epsilon,a,b)
     if isinstance(resultado,BaseException):
         match resultado:
             case ValueError():
