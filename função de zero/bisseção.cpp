@@ -8,19 +8,17 @@ double f(double x)
     return (pow(x, 3) + 4 * pow(x, 2) + 3 * x + 1);
 }
 
-void resposta(double x, int prec)
+void resposta(double x)
 {
-    std::cout << "A raiz é " << std::setprecision(prec) << x;
+    std::cout << "A raiz é " << std::setprecision(15) << x;
 }
 
 int main()
 {
     setlocale(LC_ALL, "pt_br.utf8");
-    int prec;
-    double a, b, fa, fb;
-
+    double a, b, fa, fb, epsilon;
     std::cout << "Valor da precisão: ";
-    std::cin >> prec;
+    std::cin >> epsilon;
     std::cout << "Intervalo A B: ";
     std::cin >> a >> b; 
 
@@ -32,10 +30,6 @@ int main()
         std::cout << "Não foi possível encontrar";
         return 0;
     }
-
-    double epsilon = pow(10, -prec);
-
-    
 
     while (!(abs(a - b) < epsilon || abs(fa) < epsilon || abs(fb) < epsilon))
     {
@@ -55,12 +49,12 @@ int main()
 
     if (abs(a - b) < epsilon || abs(fa) < epsilon)
     {
-        resposta(a, prec);
+        resposta(a);
         return 0;
     }
     if (abs(fb) < epsilon)
     {
-        resposta(b, prec);
+        resposta(b);
         return 0;
     }
 
