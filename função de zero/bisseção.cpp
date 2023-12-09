@@ -1,63 +1,80 @@
-#include <iostream>
-#include <locale>
+#include <functional>
+#include <stdexcept>
 #include <cmath>
-#include <iomanip>
+#include <locale>
+#include <iostream>
 
-double f(double x)
-{
-    return (pow(x, 3) + 4 * pow(x, 2) + 3 * x + 1);
-}
+using funcao = std::function<double(double)>;
 
-void resposta(double x)
+double bissecao(funcao f, double epsilon, double a, double b)
 {
-    std::cout << "A raiz é " << std::setprecision(15) << x;
+    double fa = f(a);
+    double fb = f(b);
+    if (fa * fb > 0)
+    {
+        throw std::invalid_argument("O intervalo precisa cruza o eixo x");
+    }
+
+    while (abs(a - b) >= epsilon && abs(fa) >= epsilon && abs(fb) >= epsilon)
+    {
+        double x = (a + b) / 2;
+        double fx = f(x);
+
+        if (fx * fa < 0)
+        {
+            b = x;
+            fb = fx;
+            continue;
+        }
+
+        if (fx * fb < 0)
+        {
+            a = x;
+            fa = fx;
+            continue;
+        }
+
+        throw std::runtime_error("Erro durante o loop");
+    }
+
+    if (abs(a - b) < epsilon || abs(fa) < epsilon)
+    {
+        return a;
+    }
+
+    if (abs(fb) < epsilon)
+    {
+        return b;
+    }
+
+    throw std::runtime_error("Finalizado sem encontrar a raiz");
 }
 
 int main()
 {
     setlocale(LC_ALL, "pt_br.utf8");
-    double a, b, fa, fb, epsilon;
-    std::cout << "Valor da precisão: ";
-    std::cin >> epsilon;
-    std::cout << "Intervalo A B: ";
-    std::cin >> a >> b; 
-
-    fa = f(a);
-    fb = f(b);
-
-    if (!(fa * fb < 0))
+    funcao f = [](double x)
     {
-        std::cout << "Não foi possível encontrar";
+        return (sin(x) * pow(x, x));
+    };
+    double epsilon = pow(10, -15);
+    double a = 6;
+    double b = 7;
+
+    double resultado;
+
+    try
+    {
+        resultado = bissecao(f, epsilon, a, b);
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
         return 0;
     }
 
-    while (!(abs(a - b) < epsilon || abs(fa) < epsilon || abs(fb) < epsilon))
-    {
-        double x = (a + b) / 2;
-        double fx = f(x);
-        if (fx * fa < 0)
-        {
-            b = x;
-            fb = fx;
-        }
-        else
-        {
-            a = x;
-            fa = fx;
-        }
-    }
+    std::cout << "A raiz encontrada é " << resultado << "\n";
+    std::cout << "F(" << resultado << ") é " << f(resultado) << "\n";
 
-    if (abs(a - b) < epsilon || abs(fa) < epsilon)
-    {
-        resposta(a);
-        return 0;
-    }
-    if (abs(fb) < epsilon)
-    {
-        resposta(b);
-        return 0;
-    }
-
-    std::cout << "Não foi possível encontrar";
     return 0;
 }
