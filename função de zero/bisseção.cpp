@@ -3,6 +3,7 @@
 #include <cmath>
 #include <locale>
 #include <iostream>
+#include <format>
 
 using funcao = std::function<double(double)>;
 
@@ -73,8 +74,8 @@ int main()
         return 0;
     }
 
-    std::cout << "A raiz encontrada é " << resultado << "\n";
-    std::cout << "F(" << resultado << ") é " << f(resultado) << "\n";
+    std::cout << std::format("A raiz encontrada é {}\n",resultado);
+    std::cout << std::format("F({}) é {}\n",resultado,f(resultado));
 
     return 0;
 }
