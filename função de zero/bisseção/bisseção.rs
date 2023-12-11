@@ -13,7 +13,7 @@ fn bisseção(f: &Função, epsilon: f64, mut a: f64, mut b: f64) -> Result<f64,
         return Err(Erro::IntervaloInvalido);
     }
 
-    while f64::abs(a - b) >= epsilon && f64::abs(fa) >= epsilon && f64::abs(fb) >= epsilon {
+    while (a - b).abs() >= epsilon && fa.abs() >= epsilon && fb.abs() >= epsilon {
         let x = (a + b) / 2.0;
         let fx = f(x);
 
@@ -32,11 +32,11 @@ fn bisseção(f: &Função, epsilon: f64, mut a: f64, mut b: f64) -> Result<f64,
         return Err(Erro::Desconhecido("Erro dentro do loop".to_string()));
     }
 
-    if f64::abs(a - b) < epsilon || f64::abs(fa) < epsilon {
+    if (a - b).abs() < epsilon || fa.abs() < epsilon {
         return Ok(a);
     }
 
-    if f64::abs(fb) < epsilon {
+    if fb.abs() < epsilon {
         return Ok(b);
     }
 
@@ -46,8 +46,8 @@ fn bisseção(f: &Função, epsilon: f64, mut a: f64, mut b: f64) -> Result<f64,
 }
 
 fn main() {
-    let f: Função = |x| f64::sin(x) * f64::powf(x, x);
-    let epsilon = f64::powi(10.0, -15);
+    let f: Função = |x| x.sin() * x.powf(x);
+    let epsilon = 10.0_f64.powi(-15);
     let a = 6.0;
     let b = 7.0;
 
