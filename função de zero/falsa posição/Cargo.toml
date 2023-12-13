@@ -1,0 +1,10 @@
+[package]
+name = "falsa_posição"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "falsa_posição"
+path = "falsa posição.rs"
+
+

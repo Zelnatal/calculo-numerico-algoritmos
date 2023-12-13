@@ -1,6 +1,7 @@
 {
     "rust-analyzer.linkedProjects": [
-        "./função de zero/bisseção/Cargo.toml"
+        "./função de zero/bisseção/Cargo.toml",
+        "./função de zero/falsa posição/Cargo.toml"
     ],
     "C_Cpp.default.cppStandard": "c++20",
     "files.associations": {
