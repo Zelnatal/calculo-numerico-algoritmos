@@ -68,12 +68,7 @@ fn bisseção(
     ))
 }
 
-fn encontrar_intervalo(
-    f: &Função,
-    a: f64,
-    b: f64,
-    k_máximo: u32,
-) -> Option<(f64, f64, u32)> {
+fn encontrar_intervalo(f: &Função, a: f64, b: f64, k_máximo: u32) -> Option<(f64, f64, u32)> {
     let fa = f(a);
     let fb = f(b);
     let k_atual: u32 = 0;
@@ -82,27 +77,27 @@ fn encontrar_intervalo(
         return Some((a, b, k_atual));
     }
 
-    let mut fila: VecDeque<(f64,f64,u32)> = VecDeque::new();
-    fila.push_front((a,b,k_atual));
+    let mut fila: VecDeque<(f64, f64, u32)> = VecDeque::new();
+    fila.push_front((a, b, k_atual));
 
     while fila.len() > 0 {
-        let (aa,ba,ka) =  fila.pop_back().unwrap();
-        if ka > k_máximo{
+        let (aa, ba, ka) = fila.pop_back().unwrap();
+        if ka > k_máximo {
             continue;
         }
-        let x = (aa+ba)/2.0;
-        let fx = f(x); 
+        let x = (aa + ba) / 2.0;
+        let fx = f(x);
 
-        if fx*f(aa) < 0.0{
-            return Some((aa,x,ka+1));
+        if fx * f(aa) < 0.0 {
+            return Some((aa, x, ka + 1));
         }
 
-        if fx*f(ba) < 0.0{
-            return Some((ba,x,ka+1));
+        if fx * f(ba) < 0.0 {
+            return Some((ba, x, ka + 1));
         }
 
-        fila.push_front((aa,x,ka+1));
-        fila.push_front((ba,x,ka+1));
+        fila.push_front((aa, x, ka + 1));
+        fila.push_front((ba, x, ka + 1));
     }
 
     None
@@ -116,8 +111,8 @@ fn main() {
 
     let k_máximo = iter_máximo(a, b, epsilon);
 
-    if let Some((a_atual,b_atual,k_atual)) = encontrar_intervalo(&f, a, b, k_máximo){
-        match bisseção(&f, epsilon, a_atual, b_atual,k_atual,k_máximo) {
+    if let Some((a_atual, b_atual, k_atual)) = encontrar_intervalo(&f, a, b, k_máximo) {
+        match bisseção(&f, epsilon, a_atual, b_atual, k_atual, k_máximo) {
             Ok(resultado) => {
                 let corta = (resultado / epsilon).trunc() * epsilon;
                 println!("A raiz encontrada é {}", corta);
@@ -129,8 +124,7 @@ fn main() {
             }
             Err(Erro::Desconhecido(mensagem)) => println!("Deu Erro: {}", mensagem),
         }
-    } else{
+    } else {
         println!("Melhore o intervalo");
     }
-
 }
