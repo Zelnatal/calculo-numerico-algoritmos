@@ -51,6 +51,8 @@ fn falsa_posição(
         return Err(Erro::Desconhecido("Erro dentro do loop".to_string()));
     }
 
+    println!("{}",k_atual);
+
     if k_atual > k_máximo {
         return Err(Erro::IteraçõesMáxima(k_máximo));
     }
@@ -89,7 +91,7 @@ fn encontrar_intervalo(f: &Função, a: f64, b: f64, k_máximo: u32) -> Option<(
         let faa = f(aa);
         let fba = f(ba);
 
-        let x = (aa*fba - ba*faa) / (fba-faa);
+        let x = (aa*fba.abs() + ba*faa.abs()) / (fba.abs()+faa.abs());
         let fx = f(x);
 
         if fx * faa < 0.0 {
@@ -101,19 +103,20 @@ fn encontrar_intervalo(f: &Função, a: f64, b: f64, k_máximo: u32) -> Option<(
         }
 
         fila.push_front((aa, x, ka + 1));
-        fila.push_front((x, ba, ka + 1));
+        fila.push_front((ba, x, ka + 1));
     }
 
     None
 }
 
 fn main() {
-    let f: Função = |x| 40.0 - 32.7 * x + 108.88 * (1.0 - (-0.3 * x).exp());
+    let f: Função = |x| x.powi(2) - 4.0;
     let epsilon = 10.0_f64.powi(-3);
-    let a = -2.0;
-    let b = 3.5;
+    let a = -3.0;
+    let b = 3.0;
 
     let k_máximo = iter_máximo(a, b, epsilon);
+    println!("{}",k_máximo);
 
     if let Some((a_atual, b_atual, k_atual)) = encontrar_intervalo(&f, a, b, k_máximo) {
         match falsa_posição(&f, epsilon, a_atual, b_atual, k_atual, k_máximo) {
@@ -129,6 +132,6 @@ fn main() {
             Err(Erro::Desconhecido(mensagem)) => println!("Deu Erro: {}", mensagem),
         }
     } else {
-        println!("Melhore o intervalo");
+        println!("Não foi encontrado raiz nesse intervalo");
     }
 }

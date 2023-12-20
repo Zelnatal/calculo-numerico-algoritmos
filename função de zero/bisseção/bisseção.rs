@@ -51,6 +51,8 @@ fn bisseção(
         return Err(Erro::Desconhecido("Erro dentro do loop".to_string()));
     }
 
+    println!("{}",k_atual);
+
     if k_atual > k_máximo {
         return Err(Erro::IteraçõesMáxima(k_máximo));
     }
@@ -104,10 +106,10 @@ fn encontrar_intervalo(f: &Função, a: f64, b: f64, k_máximo: u32) -> Option<(
 }
 
 fn main() {
-    let f: Função = |x| 40.0 - 32.7 * x + 108.88 * (1.0 - (-0.3 * x).exp());
+    let f: Função = |x| x.powi(2) - 4.0;
     let epsilon = 10.0_f64.powi(-3);
-    let a = -2.0;
-    let b = 3.5;
+    let a = -3.0;
+    let b = 0.0;
 
     let k_máximo = iter_máximo(a, b, epsilon);
 
