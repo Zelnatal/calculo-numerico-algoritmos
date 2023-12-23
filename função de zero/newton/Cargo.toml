@@ -1,0 +1,10 @@
+[package]
+name = "newton"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "newton"
+path = "newton.rs"
+
+
