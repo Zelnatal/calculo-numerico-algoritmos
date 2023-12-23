@@ -1,5 +1,6 @@
 {
     "rust-analyzer.linkedProjects": [
+        "./derivada/Cargo.toml",
         "./função de zero/bisseção/Cargo.toml",
         "./função de zero/falsa posição/Cargo.toml",
         "./função de zero/ponto fixo/Cargo.toml"
