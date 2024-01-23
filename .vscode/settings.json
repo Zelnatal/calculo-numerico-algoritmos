@@ -5,6 +5,7 @@
         "./função de zero/falsa posição/Cargo.toml",
         "./função de zero/ponto fixo/Cargo.toml",
         "./função de zero/newton/Cargo.toml",
+        "./função de zero/secante/Cargo.toml",
     ],
     "C_Cpp.default.cppStandard": "c++20",
     "files.associations": {
