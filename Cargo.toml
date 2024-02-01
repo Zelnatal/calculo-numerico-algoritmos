@@ -1,0 +1,32 @@
+[package]
+name = "calculo-numerico-algoritmos"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "bisseção"
+path = "./função de zero/bisseção/bisseção.rs"
+
+[[bin]]
+name = "falsa_posição"
+path = "./função de zero/falsa posição/falsa posição.rs"
+
+[[bin]]
+name = "newton"
+path = "./função de zero/newton/newton.rs"
+
+[[bin]]
+name = "ponto_fixo"
+path = "./função de zero/ponto fixo/ponto fixo.rs"
+
+[[bin]]
+name = "secante"
+path = "./função de zero/secante/secante.rs"
+
+[[bin]]
+name = "eliminação_de_gauss"
+path = "./sistemas lineares/eliminação de gauss/eliminação de gauss.rs"
+
+[dependencies]
