@@ -9,6 +9,7 @@ enum Error {
     NãoQuadrada,
     NãoTemTriangular,
     ColunaLenDiferenteB,
+    DivisãoZero,
 }
 
 impl Matriz {
@@ -82,6 +83,9 @@ fn gauss(matriz: &Matriz) -> Result<Vec<f64>, Error> {
 
     let mut xs = vec![0.0; matriz.b_len()];
     for i in (0..b.len()).rev() {
+        if m[i][i] == 0.0 {
+            return Err(Error::DivisãoZero);
+        }
         let mut s = 0.0;
         for j in i + 1..b.len() {
             s += m[i][j] * xs[j]
@@ -98,16 +102,19 @@ fn main() {
         vec![4.0, 3.0, 0.0],
     ];
     let b = vec![1.0, 2.0, 3.0];
-    let matriz = Matriz::new(m, b); 
+    let matriz = Matriz::new(m, b);
     match gauss(&matriz) {
         Ok(xs) => {
             println!("Os xs encontrados são :");
             for x in xs {
-                println!("{}",x)
+                println!("{}", x)
             }
-        },
+        }
         Err(Error::NãoQuadrada) => println!("A matriz não é quadrada"),
-        Err(Error::ColunaLenDiferenteB) => println!("O tamanho da coluna da matriz é diferente do tamanho de b"),
-        Err(Error::NãoTemTriangular) => println!("Não foi possível converte em triangular")
+        Err(Error::ColunaLenDiferenteB) => {
+            println!("O tamanho da coluna da matriz é diferente do tamanho de b")
+        }
+        Err(Error::NãoTemTriangular) => println!("Não foi possível converte em triangular"),
+        Err(Error::DivisãoZero) => println!("Teve uma divisão por zero"),
     }
 }
