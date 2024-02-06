@@ -29,4 +29,8 @@ path = "./função de zero/secante/secante.rs"
 name = "eliminação_de_gauss"
 path = "./sistemas lineares/eliminação de gauss/eliminação de gauss.rs"
 
+[[bin]]
+name = "decomposição_de_lu"
+path = "./sistemas lineares/decomposição de lu/decomposição de lu.rs"
+
 [dependencies]
