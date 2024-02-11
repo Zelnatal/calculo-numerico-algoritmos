@@ -37,4 +37,8 @@ path = "./sistemas lineares/eliminação de gauss/eliminação de gauss 2.rs"
 name = "decomposição_de_lu"
 path = "./sistemas lineares/decomposição de lu/decomposição de lu.rs"
 
+[[bin]]
+name = "decomposição_de_lu2"
+path = "./sistemas lineares/decomposição de lu/decomposição de lu 2.rs"
+
 [dependencies]
