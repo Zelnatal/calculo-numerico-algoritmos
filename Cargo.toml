@@ -30,6 +30,10 @@ name = "eliminação_de_gauss"
 path = "./sistemas lineares/eliminação de gauss/eliminação de gauss.rs"
 
 [[bin]]
+name = "eliminação_de_gauss2"
+path = "./sistemas lineares/eliminação de gauss/eliminação de gauss 2.rs"
+
+[[bin]]
 name = "decomposição_de_lu"
 path = "./sistemas lineares/decomposição de lu/decomposição de lu.rs"
 
