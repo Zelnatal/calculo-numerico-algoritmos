@@ -53,10 +53,19 @@ impl SistemaEquação {
         }
         Ok(retorno)
     }
+
+    fn quantidade_zeros(&self) -> usize {
+        self.a.iter().fold(0, |acc, m| {
+            acc + m
+                .iter()
+                .fold(0, |acc, n| if *n == 0.0 { acc + 1 } else { acc })
+        })
+    }
 }
 
 fn gauss(sistema: &SistemaEquação) -> Result<Vec<f64>, Error> {
     let sistema = sistema.preparar_sistema_triangular_superior()?;
+    println!("A quantidade de zeros é {}",sistema.quantidade_zeros());
     let mut xs = vec![0.0; sistema.b.len()];
     for i in (0..sistema.b.len()).rev() {
         let mut s = 0.0;

@@ -36,11 +36,20 @@ impl SistemaLu {
 
         Ok(Self { l, u })
     }
+
+    fn quantidade_zeros(m: &Matriz) -> usize {
+        m.iter().fold(0, |acc, m| {
+            acc + m
+                .iter()
+                .fold(0, |acc, n| if *n == 0.0 { acc + 1 } else { acc })
+        })
+    }
 }
 
 fn lu(a: &Matriz, b: &Vec<f64>) -> Result<Vec<f64>, &'static str> {
     let SistemaLu { l, u } = SistemaLu::new(a)?;
-
+    println!("A quantidade de zeros l é {}",SistemaLu::quantidade_zeros(&l));
+    println!("A quantidade de zeros de u é {}",SistemaLu::quantidade_zeros(&u));
     if a.len() != b.len() {
         return Err("o tamanho da coluna de A tem que do mesmo tamanho de b");
     }

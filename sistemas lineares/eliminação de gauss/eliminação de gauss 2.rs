@@ -57,7 +57,7 @@ impl SistemaEquação {
         Ok(retorno)
     }
 
-    fn espacidade(&self) -> usize {
+    fn quantidade_zeros(&self) -> usize {
         self.a.iter().fold(0, |acc, m| {
             acc + m
                 .iter()
@@ -68,7 +68,7 @@ impl SistemaEquação {
 
 fn gauss(sistema: &SistemaEquação) -> Result<Vec<f64>, Error> {
     let sistema = sistema.preparar_sistema_triangular_inferior()?;
-    println!("A espacidade é {}",sistema.espacidade());
+    println!("A quantidade de zeros é {}",sistema.quantidade_zeros());
     let mut xs = vec![0.0; sistema.b.len()];
     for i in 0..sistema.b.len() {
         let mut s = 0.0;
