@@ -48,7 +48,7 @@ impl SistemaLu {
 
 fn lu(a: &Matriz, b: &Vec<f64>) -> Result<Vec<f64>, &'static str> {
     let SistemaLu { l, u } = SistemaLu::new(a)?;
-    println!("A quantidade de zeros l é {}",SistemaLu::quantidade_zeros(&l));
+    println!("A quantidade de zeros de l é {}",SistemaLu::quantidade_zeros(&l));
     println!("A quantidade de zeros de u é {}",SistemaLu::quantidade_zeros(&u));
     if a.len() != b.len() {
         return Err("o tamanho da coluna de A tem que do mesmo tamanho de b");
