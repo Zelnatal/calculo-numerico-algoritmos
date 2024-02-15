@@ -49,5 +49,9 @@ path = "./sistemas lineares/fatoração de cholesky/fatoração de cholesky.rs"
 name = "fatoração_de_cholesky_complexos"
 path = "./sistemas lineares/fatoração de cholesky/fatoração de cholesky complexos.rs"
 
+[[bin]]
+name = "fatoração_de_cholesky_complexos_tentativa"
+path = "./sistemas lineares/fatoração de cholesky/fatoração de cholesky complexos tentativa.rs"
+
 [dependencies]
 num-complex = "0.4.5"
