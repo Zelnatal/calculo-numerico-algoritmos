@@ -7,51 +7,51 @@ edition = "2021"
 
 [[bin]]
 name = "bisseção"
-path = "./função de zero/bisseção/bisseção.rs"
+path = "./funcao-de-zero/bissecao/bissecao.rs"
 
 [[bin]]
 name = "falsa_posição"
-path = "./função de zero/falsa posição/falsa posição.rs"
+path = "./funcao-de-zero/falsa-posicao/falsa-posicao.rs"
 
 [[bin]]
 name = "newton"
-path = "./função de zero/newton/newton.rs"
+path = "./funcao-de-zero/newton/newton.rs"
 
 [[bin]]
 name = "ponto_fixo"
-path = "./função de zero/ponto fixo/ponto fixo.rs"
+path = "./funcao-de-zero/ponto-fixo/ponto-fixo.rs"
 
 [[bin]]
 name = "secante"
-path = "./função de zero/secante/secante.rs"
+path = "./funcao-de-zero/secante/secante.rs"
 
 [[bin]]
 name = "eliminação_de_gauss"
-path = "./sistemas lineares/eliminação de gauss/eliminação de gauss.rs"
+path = "./sistemas-lineares/eliminacao-de-gauss/eliminacao-de-gauss.rs"
 
 [[bin]]
 name = "eliminação_de_gauss2"
-path = "./sistemas lineares/eliminação de gauss/eliminação de gauss 2.rs"
+path = "./sistemas-lineares/eliminacao-de-gauss/eliminacao-de-gauss-2.rs"
 
 [[bin]]
 name = "decomposição_de_lu"
-path = "./sistemas lineares/decomposição de lu/decomposição de lu.rs"
+path = "./sistemas-lineares/decomposicao-de-lu/decomposicao-de-lu.rs"
 
 [[bin]]
 name = "decomposição_de_lu2"
-path = "./sistemas lineares/decomposição de lu/decomposição de lu 2.rs"
+path = "./sistemas-lineares/decomposicao-de-lu/decomposicao-de-lu-2.rs"
 
 [[bin]]
 name = "fatoração_de_cholesky"
-path = "./sistemas lineares/fatoração de cholesky/fatoração de cholesky.rs"
+path = "./sistemas-lineares/fatoracao-de-cholesky/fatoracao-de-cholesky.rs"
 
 [[bin]]
 name = "fatoração_de_cholesky_complexos"
-path = "./sistemas lineares/fatoração de cholesky/fatoração de cholesky complexos.rs"
+path = "./sistemas-lineares/fatoracao-de-cholesky/fatoracao-de-cholesky-complexos.rs"
 
 [[bin]]
 name = "fatoração_de_cholesky_complexos_tentativa"
-path = "./sistemas lineares/fatoração de cholesky/fatoração de cholesky complexos tentativa.rs"
+path = "./sistemas-lineares/fatoracao-de-cholesky/fatoracao-de-cholesky-complexos-tentativa.rs"
 
 [dependencies]
 num-complex = "0.4.5"
