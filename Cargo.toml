@@ -45,13 +45,3 @@ path = "./sistemas-lineares/decomposicao-de-lu/decomposicao-de-lu-2.rs"
 name = "fatoração_de_cholesky"
 path = "./sistemas-lineares/fatoracao-de-cholesky/fatoracao-de-cholesky.rs"
 
-[[bin]]
-name = "fatoração_de_cholesky_complexos"
-path = "./sistemas-lineares/fatoracao-de-cholesky/fatoracao-de-cholesky-complexos.rs"
-
-[[bin]]
-name = "fatoração_de_cholesky_complexos_tentativa"
-path = "./sistemas-lineares/fatoracao-de-cholesky/fatoracao-de-cholesky-complexos-tentativa.rs"
-
-[dependencies]
-num-complex = "0.4.5"
