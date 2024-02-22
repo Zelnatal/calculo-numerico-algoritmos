@@ -57,7 +57,7 @@ fn cholesky(a: &Vec<Vec<f64>>, b: &Vec<f64>) -> Result<Vec<f64>, &'static str> {
 
     let mut xs = vec![0.0; a.len()];
     for i in (0..a.len()).rev() {
-        let mut s = 0.0;
+        let mut s = 0.0; 
         for j in i + 1..a.len() {
             s += l[i][j] * xs[j]
         }
@@ -69,11 +69,11 @@ fn cholesky(a: &Vec<Vec<f64>>, b: &Vec<f64>) -> Result<Vec<f64>, &'static str> {
 
 fn main() {
     let a = vec![
-        vec![1.0, 2.0, 3.0],
-        vec![2.0, 6.0, 4.0],
-        vec![3.0, 4.0, 12.0],
+        vec![4.0, -2.0, 2.0],
+        vec![-2.0, 10.0, -7.0],
+        vec![2.0, -7.0, 30.0],
     ];
-    let b = vec![4.0, 5.0, 5.0];
+    let b = vec![8.0, 11.0, -31.0];
 
     match cholesky(&a, &b) {
         Ok(xs) => {

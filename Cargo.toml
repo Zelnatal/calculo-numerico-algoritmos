@@ -45,3 +45,6 @@ path = "./sistemas-lineares/decomposicao-de-lu/decomposicao-de-lu-2.rs"
 name = "fatoração_de_cholesky"
 path = "./sistemas-lineares/fatoracao-de-cholesky/fatoracao-de-cholesky.rs"
 
+[[bin]]
+name = "gauss-jacobi"
+path = "./sistemas-lineares/gauss-jacobi/gauss-jacobi.rs"
