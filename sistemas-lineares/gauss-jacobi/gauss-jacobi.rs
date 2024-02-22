@@ -1,7 +1,4 @@
-use std::{
-    ops::{Add, Mul, Sub},
-    vec,
-};
+use std::ops::{Add, Mul, Sub};
 
 #[derive(Debug, Clone)]
 struct Vetor(Vec<f64>);
