@@ -46,5 +46,9 @@ name = "fatoração_de_cholesky"
 path = "./sistemas-lineares/fatoracao-de-cholesky/fatoracao-de-cholesky.rs"
 
 [[bin]]
-name = "gauss-jacobi"
+name = "gauss_jacobi"
 path = "./sistemas-lineares/gauss-jacobi/gauss-jacobi.rs"
+
+[[bin]]
+name = "gauss_seidel"
+path = "./sistemas-lineares/gauss-seidel/gauss-seidel.rs"
