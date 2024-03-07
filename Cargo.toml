@@ -52,3 +52,7 @@ path = "./sistemas-lineares/gauss-jacobi/gauss-jacobi.rs"
 [[bin]]
 name = "gauss_seidel"
 path = "./sistemas-lineares/gauss-seidel/gauss-seidel.rs"
+
+[[bin]]
+name = "lagrange"
+path = "./interpolacao/lagrange/lagrange.rs"
