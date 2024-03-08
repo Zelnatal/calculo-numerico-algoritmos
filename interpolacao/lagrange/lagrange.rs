@@ -20,12 +20,12 @@ impl<const LEN: usize> Tabela<LEN> {
     }
 }
 
-struct Lagrande<const LEN: usize> {
+struct Lagrange<const LEN: usize> {
     t: Rc<Tabela<LEN>>,
     l: [Box<dyn Fn(f64) -> f64>; LEN],
 }
 
-impl<const LEN: usize> Lagrande<LEN> {
+impl<const LEN: usize> Lagrange<LEN> {
     fn new(t: Tabela<LEN>) -> Self {
         let t = Rc::new(t);
         let l = std::array::from_fn(|i| {
@@ -59,7 +59,7 @@ impl<const LEN: usize> Lagrande<LEN> {
 fn main() {
     let tabela = Tabela::from_func([-1.0,0.0,1.0], |x| (-x).exp());
     let x = 5.0;
-    let lagrande = Lagrande::new(tabela);
+    let lagrande = Lagrange::new(tabela);
     println!("O g({}) = {}",x,lagrande.calcular(x))
     
 }
