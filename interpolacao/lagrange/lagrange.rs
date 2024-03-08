@@ -58,8 +58,9 @@ impl<const LEN: usize> Lagrange<LEN> {
 
 fn main() {
     let tabela = Tabela::from_func([-1.0,0.0,1.0], |x| (-x).exp());
-    let x = 5.0;
+    let x = [5.0,-5.0,10.0,1.1];
     let lagrande = Lagrange::new(tabela);
-    println!("O g({}) = {}",x,lagrande.calcular(x))
-    
+    for x in x {
+        println!("O g({}) = {}",x,lagrande.calcular(x));
+    }
 }
