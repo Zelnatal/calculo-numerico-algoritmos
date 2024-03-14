@@ -56,3 +56,7 @@ path = "./sistemas-lineares/gauss-seidel/gauss-seidel.rs"
 [[bin]]
 name = "lagrange"
 path = "./interpolacao/lagrange/lagrange.rs"
+
+[[bin]]
+name = "interpolacao_newton"
+path = "./interpolacao//newton/newton.rs"
