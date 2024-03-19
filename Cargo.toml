@@ -60,3 +60,7 @@ path = "./interpolacao/lagrange/lagrange.rs"
 [[bin]]
 name = "interpolacao_newton"
 path = "./interpolacao//newton/newton.rs"
+
+[[bin]]
+name = "riemann"
+path = "./integral/riemann/riemann.rs"
