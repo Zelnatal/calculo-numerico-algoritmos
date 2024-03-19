@@ -64,3 +64,7 @@ path = "./interpolacao//newton/newton.rs"
 [[bin]]
 name = "riemann"
 path = "./integral/riemann/riemann.rs"
+
+[[bin]]
+name = "trapezio"
+path = "./integral/trapezio/trapezio.rs"
