@@ -68,3 +68,7 @@ path = "./integral/riemann/riemann.rs"
 [[bin]]
 name = "trapezio"
 path = "./integral/trapezio/trapezio.rs"
+
+[[bin]]
+name = "simpson_1_3"
+path = "./integral/simpson-1-3/simpson-1-3.rs"
