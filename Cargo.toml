@@ -80,3 +80,7 @@ path = "./integral/simpson-3-8/simpson-3-8.rs"
 [[bin]]
 name = "2_45"
 path = "./integral/2-45/2-45.rs"
+
+[[bin]]
+name = "quadratura_gaussiana_n_1"
+path = "./integral/quadratura-gaussiana-n-1/quadratura-gaussiana-n-1.rs"
