@@ -1,6 +1,6 @@
 fn riemann(a: f64, b: f64, n: usize, f: fn(f64) -> f64) -> f64 {
     let dx = (b - a) / (n as f64);
-    (1..=n)
+    (0..=n)
         .map(|i| {
             print!("{}/{}\r", i, n);
             dx * f(a + dx * (i as f64))

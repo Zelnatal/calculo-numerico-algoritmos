@@ -7,13 +7,14 @@ fn simpson(a: f64, b: f64, n: usize, f: fn(f64) -> f64) -> Result<f64, &'static 
         .map(|i| {
             let xi = a + h * (i as f64);
             match i {
-                0 | _ if i == n => f(xi),
+                _ if i == 0 || i == n => f(xi),
                 _ if i % 2 == 1 => 4.0 * f(xi),
                 _ if i % 2 == 0 => 2.0 * f(xi),
                 _ => unreachable!(),
             }
         })
-        .sum::<f64>() * (h/3.0))
+        .sum::<f64>()
+        * (h / 3.0))
 }
 
 fn main() {
@@ -22,7 +23,7 @@ fn main() {
     let b = 3.0;
     let n = 1000;
     match simpson(a, b, n, f) {
-        Ok(r) => println!("A integral é {}",r),
-        Err(s) => eprintln!("Erro: {}",s)
+        Ok(r) => println!("A integral é {}", r),
+        Err(s) => eprintln!("Erro: {}", s),
     }
 }
